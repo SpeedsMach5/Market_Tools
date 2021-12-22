@@ -8,7 +8,7 @@ from plotly import graph_objects as go
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
-stocks = ("SPY","APPH", "AAPL", "TSLA", "MSFT","INTC", "AMD",)
+stocks = ()
 selected_stocks = st.selectbox("Select dataset for prediction", stocks)
 
 n_day = st.slider("Days of predicitons", 1,10)
@@ -30,7 +30,7 @@ st.write(data.tail())
 
 def plot_raw_data():
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="stock_open"))
+    #fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="stock_open"))
     fig.add_trace(go.Scatter(x=data["Date"], y=data["Close"], name="stock_close"))
     fig.layout.update(title_text="Time Series Data", xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
