@@ -4,15 +4,27 @@ import yfinance as yf
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
+import pandas as pd
 
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
-stocks = ()
+# ticker function
+def read_tickers():
+    with open("data/constituents_symbols.txt", "r") as file:
+        content = file.read()
+        content = content.split("\n")
+        return content
+
+# Number of days to calculate
+
+stocks = (read_tickers())
 selected_stocks = st.selectbox("Select dataset for prediction", stocks)
 
 n_day = st.slider("Days of predicitons", 1,10)
 period = n_day*10
+
+
 
 @st.cache
 
@@ -27,6 +39,8 @@ data_load_state.text("Blood in the Water")
 
 st.subheader("Raw Meat")
 st.write(data.tail())
+
+#plot
 
 def plot_raw_data():
     fig = go.Figure()
