@@ -5,7 +5,8 @@ from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
 import pandas as pd
-
+from patterns import patterns
+import os
 
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
@@ -71,3 +72,42 @@ st.plotly_chart(fig1)
 st.write("Forecast Data")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
+
+# Pattern recognition code
+
+# ticker function
+
+st.write("Candlestick Patterns")
+
+def read_tickers():
+    with open("data/constituents_symbols.txt", "r") as file:
+        content = file.read()
+        content = content.split("\n")
+        return content
+
+def index():
+    current_patterns = ('patterns', None)
+    stocks = {}
+
+    with open('patterns') as f:
+        for row in patterns(f):
+            stocks[row[0]] = {'company': row[1]}
+    if patterns:
+        datafiles = os.listdir('datasets/daily')
+        for datasets in datafiles:
+            df =  pd.read_csv("datasets/daily/{}".format(datasets))
+            pattern_function = getattr(talib. current_patterns)
+
+            symbol = datasets.split('.')[0]
+
+            try:
+                result = pattern_function(df["Open"], df["High"],df["Low"], df["Close"])
+                last = result.tail(1).values[0]
+                if last > 0:
+                    stocks[symbol][current_patterns] = 'bullish'
+                elif last < 0:
+                    stocks[symbol][current_patterns] = 'bearish'
+                else:
+                    stocks[symbol][current_patterns] = None
+            except:
+                pass
