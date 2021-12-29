@@ -21,7 +21,7 @@ def read_tickers():
 # Number of days to calculate
 
 stocks = (read_tickers())
-selected_stocks = st.selectbox("Select dataset for prediction", stocks)
+selected_stocks = st.sidebar.selectbox("Hunting the Markets", stocks)
 
 n_day = st.slider("Days of predicitons", 1,10)
 period = n_day*10
@@ -37,19 +37,19 @@ def load_data(ticker):
 
 data_load_state = st.text("Raw Hunt Data")
 data = load_data(selected_stocks)
-data_load_state.text("Blood in the Water")
+data_load_state.text("This is for entertainment purposes only and not a solicitation to buy or sell stocks.")
 
-st.subheader("Raw Meat")
+st.subheader("Ticker Data for the past five closes")
 st.write(data.tail())
 
 #plot
 
 def plot_raw_data():
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="stock_open"))
+    #fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="stock_open"))
     fig.add_trace(go.Scatter(x=data["Date"], y=data["Close"], name="stock_close"))
-    fig.layout.update(title_text="Time Series Data", xaxis_rangeslider_visible=True)
-    st.plotly_chart(fig)
+    fig.layout.update(title_text="Closes", xaxis_rangeslider_visible=True)
+    st.plotly_chart(fig,use_container_width=True)
 
 plot_raw_data()
 
@@ -62,7 +62,7 @@ m.fit(df_train)
 future = m.make_future_dataframe(periods=period)
 forecast = m.predict(future)
 
-st.subheader("Forecast")
+st.subheader("Probable outcome, not an actual crystal ball")
 st.write(forecast.tail())
 
 st.write("Forecast Data")
