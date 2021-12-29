@@ -7,6 +7,7 @@ from plotly import graph_objects as go
 import pandas as pd
 from patterns import patterns
 import os
+import talib
 
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
@@ -73,41 +74,21 @@ st.write("Forecast Data")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
 
-# Pattern recognition code
-
-# ticker function
+# Pattern recognition code segment
 
 st.write("Candlestick Patterns")
 
-def read_tickers():
-    with open("data/constituents_symbols.txt", "r") as file:
-        content = file.read()
-        content = content.split("\n")
-        return content
+selected_patterns = st.sidebar.selectbox("Pattern Detection", patterns.values())
 
-def index():
-    current_patterns = ('patterns', None)
-    stocks = {}
-
-    with open('patterns') as f:
-        for row in patterns(f):
-            stocks[row[0]] = {'company': row[1]}
+def read_patterns():
+    patterns = ("pattern", None)
     if patterns:
-        datafiles = os.listdir('datasets/daily')
-        for datasets in datafiles:
-            df =  pd.read_csv("datasets/daily/{}".format(datasets))
-            pattern_function = getattr(talib. current_patterns)
+        data_files = os.listdir("data/constituent_symbols.txt")
+        for data in data_files:
+            pd.read() ##https://finviz.com/published_idea.ashx?t={{}}&f=122921&i=INTCd162503239i
 
-            symbol = datasets.split('.')[0]
-
-            try:
-                result = pattern_function(df["Open"], df["High"],df["Low"], df["Close"])
-                last = result.tail(1).values[0]
-                if last > 0:
-                    stocks[symbol][current_patterns] = 'bullish'
-                elif last < 0:
-                    stocks[symbol][current_patterns] = 'bearish'
-                else:
-                    stocks[symbol][current_patterns] = None
-            except:
-                pass
+# def read_tickers():
+#     with open("data/constituents_symbols.txt", "r") as file:
+#         content = file.read()
+#         content = content.split("\n")
+#         return content
