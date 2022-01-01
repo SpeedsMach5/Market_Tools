@@ -5,7 +5,6 @@ from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
 import pandas as pd
-from patterns import patterns
 import os
 
 START = "2015-01-01"
