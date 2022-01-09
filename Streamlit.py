@@ -4,9 +4,14 @@ import yfinance as yf
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
+import matplotlib.pyplot as plt 
 import pandas as pd
-from patterns import patterns
+from termcolor import colored as cl 
+import numpy as np
 import os
+
+
+
 
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
@@ -24,7 +29,7 @@ stocks = (read_tickers())
 selected_stocks = st.sidebar.selectbox("Hunting the Markets", stocks)
 
 n_day = st.slider("Days of predicitons", 1,10)
-period = n_day*10
+period = n_day*252
 
 
 
@@ -34,6 +39,8 @@ def load_data(ticker):
     data = yf.download(ticker, START, TODAY)
     data.reset_index(inplace = True)
     return data
+
+
 
 data_load_state = st.text("Raw Hunt Data")
 data = load_data(selected_stocks)
@@ -73,5 +80,9 @@ st.write("Forecast Data")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
 
+"""
+This section is for backtesting trading strategies
+
+"""
 
 
