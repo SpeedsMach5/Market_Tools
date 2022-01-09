@@ -6,8 +6,11 @@ from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
 import matplotlib.pyplot as plt 
 import pandas as pd
+<<<<<<< HEAD
 from termcolor import colored as cl 
 import numpy as np
+=======
+>>>>>>> 3393ba6d1a1e0fed4a176ce4630c48fd14185341
 import os
 
 
