@@ -4,4 +4,3 @@ fbprophet
 streamlit
 plotly
 hvplot
-dmac_strategy
