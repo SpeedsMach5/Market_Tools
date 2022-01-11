@@ -6,7 +6,7 @@ from Market_Tools import pricing
 from Market_Tools import forecasting
 from Market_Tools import dmac_strategy
 from Market_Tools  import ema_sma_crossover_strategy as ema_sma
-from Market_Tools import holoviews as hv
+import holoviews as hv
 from Market_Tools import macd_strategy
 import matplotlib 
 from Market_Tools import buy_the_dip_function as bd
