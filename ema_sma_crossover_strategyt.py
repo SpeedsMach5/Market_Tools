@@ -38,7 +38,7 @@ class MA_CrossOver(bt.Strategy):
         # period for the slow moving average
         ('slow',20),
         # moving average to use
-        ('_movav', btind.MovAv.SMA(20,30).EMA(10))
+        ('_movav', btind.MovAv.SMA)
     )
 
     def __init__(self):
