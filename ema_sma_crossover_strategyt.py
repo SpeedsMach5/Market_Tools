@@ -9,21 +9,21 @@ import backtrader as bt
 import backtrader.indicators as btind
 
 
-def EMA():
-    with open("data/MA_periods.txt", "r") as file:
-        content = file.read()
-        content = content.split("\n")
-        return content
+# def EMA():
+#     with open("data/MA_periods.txt", "r") as file:
+#         content = file.read()
+#         content = content.split("\n")
+#         return content
 
-fast_period = EMA() 
+# #fast_period = EMA() 
 
-def SMA():
-    with open("data/MA_periods.txt", "r") as file:
-        content = file.read()
-        content = content.split("\n")
-        return content
+# def SMA():
+#     with open("data/MA_periods.txt", "r") as file:
+#         content = file.read()
+#         content = content.split("\n")
+#         return content
 
-slow_period = SMA()
+#slow_period = SMA()
   
 
 class MA_CrossOver(bt.Strategy):
