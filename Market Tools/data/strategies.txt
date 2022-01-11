@@ -1,0 +1,4 @@
+Double Moving Average Crossover (DMAC)
+Moving Average Convergence/Divergence (MACD)
+EMA SMA Crossover
+Buy the Dip
