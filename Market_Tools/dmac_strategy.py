@@ -1,7 +1,7 @@
 # Import the required libraries
 import numpy as np
 import pandas as pd
-import hvplot.pandas
+import hvplot
 from pathlib import Path
 from datetime import date
 from pandas.core.frame import DataFrame
