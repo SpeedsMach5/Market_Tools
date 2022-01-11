@@ -1,0 +1,7 @@
+yfinance
+Pystan==2.19.1.1
+fbprophet
+streamlit
+plotly
+pandas
+TA-Lib
