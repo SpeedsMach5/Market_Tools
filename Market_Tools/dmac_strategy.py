@@ -27,7 +27,7 @@ def analyze_dmac(signals_df:DataFrame):
     # signals_df.loc["2015-12-03":"2015-12-13"]
 
     exit = signals_df[signals_df['Entry/Exit'] == -1.0]['Close'].hvplot.scatter(
-        color="yellow",
+        color="red",
         marker="v",
         size=200,
         legend=False,
@@ -36,7 +36,7 @@ def analyze_dmac(signals_df:DataFrame):
         height=400)
     
     entry = signals_df[signals_df['Entry/Exit'] == 1.0]['Close'].hvplot.scatter(
-        color="purple",
+        color="green",
         marker="^",
         size=200,
         legend=False,
@@ -45,7 +45,7 @@ def analyze_dmac(signals_df:DataFrame):
         height=400)
 
     security_close = signals_df[['Close']].hvplot(
-        line_color="lightgray",
+        line_color="black",
         ylabel="Price in $",
         width=1000,
         height=400)

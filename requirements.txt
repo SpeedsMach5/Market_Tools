@@ -4,3 +4,4 @@ fbprophet
 streamlit
 plotly
 hvplot
+pandas.core.frame
