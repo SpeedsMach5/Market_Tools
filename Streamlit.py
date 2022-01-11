@@ -3,13 +3,13 @@ from datetime import date
 from fbprophet.plot import plot_plotly
 from plotly import graph_objects as go
 import pricing
-from Market_Tools import forecasting
-from Market_Tools import dmac_strategy
-from Market_Tools  import ema_sma_crossover_strategy as ema_sma
+import forecasting
+import dmac_strategy
+import ema_sma_crossover_strategy as ema_sma
 import holoviews as hv
-from Market_Tools import macd_strategy
+import macd_strategy
 import matplotlib 
-from Market_Tools import buy_the_dip_function as bd
+import buy_the_dip_function as bd
 
 #CONFIGURATION
 START = "2015-01-01"
