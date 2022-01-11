@@ -1,6 +1,0 @@
-yfinance
-Pystan==2.19.1.1
-fbprophet
-streamlit
-plotly
-pricing
