@@ -55,4 +55,3 @@ class MA_CrossOver(bt.Strategy):
         elif self.buysig > 0:
             self.buy()
 
-    
