@@ -23,5 +23,5 @@ def analyze_ema_sma_crossover(pricing_data:DataFrame):
     cerebro.run()
     ending_balance = float(cerebro.broker.getvalue())
     plot = cerebro.plot()[0][0]
-
+    pricing_data.set_index('Date', in_place=True)
     return pricing_data, [beginning_balance, ending_balance], plot
