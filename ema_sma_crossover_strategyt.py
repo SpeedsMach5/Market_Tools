@@ -47,7 +47,7 @@ class MA_CrossOver(bt.Strategy):
         sma_slow = self.p._movav(period=self.p.slow)
         sma_slow = self.p._movav(period=self.p.slow)
 
-        self.buysig = btind.CrossOver(sma_fast, sma_slow)
+        self.buysig = btind.CrossOver(sma_fast, sma_slow, sma_slow)
 
     def next(self):
         if self.position.size:
