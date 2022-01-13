@@ -43,7 +43,7 @@ class MA_CrossOver(bt.Strategy):
     )
 
     def __init__(self):
-        sma_fast = self.p._movav(period=self.p.fast)#.ewm(span=10).mean()
+        sma_fast = self.p._movav(period=self.p.fast).ewma(span=10).mean()
         sma_slow = self.p._movav(period=self.p.slow)
         #sma_slow = self.p._movav(period=self.p.slow)
 
