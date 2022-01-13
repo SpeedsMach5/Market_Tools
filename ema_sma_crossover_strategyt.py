@@ -32,11 +32,11 @@ class MA_CrossOver(bt.Strategy):
 
     params = (
         # period for the fast Moving Average
-        ('fast',10),
-        # period for the slow moving average
-        ('slow',30),
+        ('fast',20),
         # period for the slow moving average
         ('slow',20),
+        # period for the slow moving average
+        ('slow',30),
         # moving average to use
         ('_movav', btind.MovAv.SMA)
     )
