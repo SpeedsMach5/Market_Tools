@@ -33,11 +33,11 @@ class MA_CrossOver(bt.Strategy):
 
     params = (
         # period for the fast Moving Average
-        ('fast',10),
-        # period for the slow moving average
-        ('slow',20),
+        ('fast',20),
         # period for the slow moving average
         ('slow',30),
+        # period for the slow moving average
+        #('slow',30),
         # moving average to use
         ('_movav', btind.MovAv.SMA)
     )
@@ -45,9 +45,9 @@ class MA_CrossOver(bt.Strategy):
     def __init__(self):
         sma_fast = self.p._movav(period=self.p.fast)#.ewm(span=10).mean()
         sma_slow = self.p._movav(period=self.p.slow)
-        sma_slow = self.p._movav(period=self.p.slow)
+        #sma_slow = self.p._movav(period=self.p.slow)
 
-        self.buysig = btind.CrossOver(sma_fast, sma_slow, sma_slow)
+        self.buysig = btind.CrossOver(sma_fast, sma_slow)
 
     def next(self):
         if self.position.size:
