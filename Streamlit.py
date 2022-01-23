@@ -143,6 +143,7 @@ def display_forecasting_section(pricing_data, period):
     forecast, fig1, fig2 = forecasting.forecast(pricing_data, period)
 
     st.warning("Note: These are probable outcomes, not an actual crystal ball")
+    st.warning("Legend: Block dots = Close price, Blue line = Predicted price, Red line = Trend change")
     st.write(forecast.tail())
 
     st.plotly_chart(fig1)
@@ -258,7 +259,7 @@ strategy_list = get_listbox_data(STRATEGY_LIST_PATH)
 strategy_listbox = st.sidebar.multiselect("2. Choose one or more trading strategies", strategy_list)
 st.sidebar.markdown('____')
 
-n_day = st.sidebar.slider("3. Choose number of prediction days", 1,10)
+n_day = st.sidebar.slider("3. Choose number of weeks to forecast", 1,4)
 period = n_day*10
 st.sidebar.markdown('____')
 
