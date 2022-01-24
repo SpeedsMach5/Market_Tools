@@ -13,7 +13,8 @@ def forecast(pricing_data, period):
 
     #forecast.tail())
 
-    fig1 = m.plot(forecast, xlabel="Date",ylabel="Price"); add_changepoints_to_plot(fig1.gca(),  m, forecast); [['ds', 'yhat', 'yhat_lower', 'yhat_upper', 'trend']].tail()
+    fig1 = m.plot(forecast, xlabel="Date",ylabel="Price"); add_changepoints_to_plot(fig1.gca(),  m, forecast)
+    fig1 = m.plot[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     #a = add_changepoints_to_plot( m, forecast)
 
     fig2 = m.plot_components(forecast)
