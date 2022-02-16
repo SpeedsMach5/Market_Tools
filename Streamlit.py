@@ -71,7 +71,7 @@ def run_analysis(ticker, start_date, end_date, period, selected_strategies):
     pricing_data = display_ticker_data_section(ticker, start_date, end_date)
     display_forecasting_section(pricing_data, period)
     # display_sentiment_indicators_section(pricing_data)
-    # display_strategy_section(selected_strategies, pricing_data)
+    display_strategy_section(selected_strategies, pricing_data)
 
 
 
@@ -176,7 +176,7 @@ def display_forecasting_section(pricing_data, period):
 
     forecast, fig1, fig2 = forecasting.forecast(pricing_data, period)
 
-    st.warning("Note: These are probable outcomes, not an actual crystal ball")
+    st.warning("Note: These are possible outcomes, not an actual crystal ball")
     st.warning("Legend: Black dots = Close price, Blue line = Predicted price, Red line = Trend change")
     st.write(forecast.tail())
 
