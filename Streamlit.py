@@ -84,7 +84,7 @@ def display_parameter_section():
     st.subheader("Parameters")
     st.write('Summary of parameter selections:')
     st.markdown('- Tickers: ' + ticker_selectbox)
-    st.markdown('- Strategies: ' + str(strategy_listbox))
+    # st.markdown('- Strategies: ' + str(strategy_listbox))
     st.markdown('- Prediction weeks: ' + str(n_day))
     st.warning("DISLCAIMER: This is for entertainment purposes only. This is NOT a solicitation to buy, sell or hold stocks, bonds or options. "\
         "By using this predictive tool you agree to hold harmless J2T (Just 2 Traders) and Fast Waters Trading for any financial losses incurred. "\
