@@ -4,9 +4,7 @@ fbprophet
 streamlit
 plotly
 hvplot
-dataframe
 backtrader
 bokeh==2.4.1
 matplotlib==3.2.2
 numpy
-dataframe
