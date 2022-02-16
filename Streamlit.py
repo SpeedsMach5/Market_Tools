@@ -84,7 +84,7 @@ def display_parameter_section():
     st.subheader("Parameters")
     st.write('Summary of parameter selections:')
     st.markdown('- Tickers: ' + ticker_selectbox)
-    # st.markdown('- Strategies: ' + str(strategy_listbox))
+    st.markdown('- Strategies: ' + str(strategy_listbox))
     st.markdown('- Prediction weeks: ' + str(n_day))
     st.warning("DISLCAIMER: This is for entertainment purposes only. This is NOT a solicitation to buy, sell or hold stocks, bonds or options. "\
         "By using this predictive tool you agree to hold harmless J2T (Just 2 Traders) and Fast Waters Trading for any financial losses incurred. "\
@@ -214,6 +214,12 @@ def display_strategy_section(selected_strategies, pricing_data):
     
     """
     st.subheader("Analysis of Selected Strategies")
+
+    st.warning("Strategies use two different AI, Cerebro and Backtrader."\
+        "All back testing models use 15 years of data. "\
+            "This section will be undergoing tuning and improvements in the near future."\
+                "We apologize for the uneven presentation and lack of interactivity.")
+
     strategy_status = st.info("Loading...")
 
     for strategy in selected_strategies:
@@ -234,18 +240,18 @@ def display_strategy_section(selected_strategies, pricing_data):
             st.write(df_backtest.tail(1))
             st.bokeh_chart(hv.render(plot, backend='bokeh'))
 
-        elif strategy == 'EMA SMA Crossover':
-            st.write('__' + strategy + '__')
+        # elif strategy == 'EMA SMA Crossover':
+        #     st.write('__' + strategy + '__')
             
-            # Backtesting the EMA SMA crossover
-            df, results, plot = ema_sma.analyze_ema_sma_crossover(pricing_data)
-            st.write(df.tail())
+        #     # Backtesting the EMA SMA crossover
+        #     df, results, plot = ema_sma.analyze_ema_sma_crossover(pricing_data)
+        #     st.write(df.tail())
 
-            st.write('Backtest:')
-            st.write(f'Beginning balance: ${results[0]:,.2f}')
-            st.write(f'Ending balance: ${results[1]:,.2f}')
+        #     st.write('Backtest:')
+        #     st.write(f'Beginning balance: ${results[0]:,.2f}')
+        #     st.write(f'Ending balance: ${results[1]:,.2f}')
 
-            st.pyplot(plot)
+        #     st.pyplot(plot)
 
         elif strategy == "Moving Average Convergence/Divergence (MACD)":
             st.write(strategy)
@@ -289,9 +295,9 @@ ticker_list = get_listbox_data(TICKER_LIST_PATH)
 ticker_selectbox = st.sidebar.selectbox("1. Choose a ticker", ticker_list)
 st.sidebar.markdown('____')
 
-# strategy_list = get_listbox_data(STRATEGY_LIST_PATH)
-# strategy_listbox = st.sidebar.multiselect("2. Choose one or more trading strategies", strategy_list)
-# st.sidebar.markdown('____')
+strategy_list = get_listbox_data(STRATEGY_LIST_PATH)
+strategy_listbox = st.sidebar.multiselect("2. Choose one or more trading strategies", strategy_list)
+st.sidebar.markdown('____')
 
 n_day = st.sidebar.slider("3. Choose number of weeks to forecast", 1,4)
 period = n_day*10
@@ -301,5 +307,5 @@ st.sidebar.button('4. Run Analysis',
     key= 'button_run_analysis',
     help='Click to run analysis.', 
     on_click=run_analysis,
-    args=(ticker_list, START, TODAY, period) # , strategy_listbox
+    args=(ticker_list, START, TODAY, period,  strategy_listbox) 
 )
