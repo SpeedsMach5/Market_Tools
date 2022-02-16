@@ -70,8 +70,8 @@ def run_analysis(ticker, start_date, end_date, period, selected_strategies):
     display_parameter_section()
     pricing_data = display_ticker_data_section(ticker, start_date, end_date)
     display_forecasting_section(pricing_data, period)
-    #display_sentiment_indicators_section(pricing_data)
-    display_strategy_section(selected_strategies, pricing_data)
+    # display_sentiment_indicators_section(pricing_data)
+    # display_strategy_section(selected_strategies, pricing_data)
 
 
 
@@ -85,7 +85,41 @@ def display_parameter_section():
     st.write('Summary of parameter selections:')
     st.markdown('- Tickers: ' + ticker_selectbox)
     st.markdown('- Strategies: ' + str(strategy_listbox))
-    st.markdown('- Prediction days: ' + str(n_day))
+    st.markdown('- Prediction weeks: ' + str(n_day))
+    st.warning("DISLCAIMER: This is for entertainment purposes only. This is NOT a solicitation to buy, sell or hold stocks, bonds or options. "\
+        "By using this predictive tool you agree to hold harmless J2T (Just 2 Traders) and Fast Waters Trading for any financial losses incurred. "\
+            "This tool uses the Prophet AI datasets that use 3 years of historic data for training and 1 year for predicitve modeling and PROSSIBLE future price realization. "\
+                "This is a mean reverting model and does not account for event driven outcomes (news, sentiment, etc.) and DOES NOT model intraday movement. "\
+                          
+        )
+
+    st.warning("README"\
+        "The model outputs \
+             1) Historic data (previous closes)= black dots \
+                 2) Mean = blue line\
+                     3) Trend changes = red line "\
+                )
+
+    st.warning("How to use"\
+        "Select stock from drop down. There are currently 8,000 tradebale stocks listed. "\
+            "Select number of weeks to model. You can model up to 4 weeks, but remember that the more time selected, the uncertainty is magnified."\
+                "The predictive model graph is interactive zoom, pan, enlarge, etc. To reset graph select the 'home' icon (the house)"
+    )  
+
+    st.warning("Graph Interpretation"\
+        "Closes that are away from the mean (blue line) are expected, but not garunteed, to revert to the mean at a point in the future. "\
+            "The graph shows forward looking dates as possible time frames, not definitive time frames for price realization "\
+            "Eaxmple: if a close is ABOVE the mean, the expected movement will be DOWN towards the mean at some point in the future."
+                )
+
+    st.warning("Expected Output"\
+        "The last 5 days closing prices for the selected stock. "\
+            "The predictive model price and the predicitve model graph. "\
+                "Historic trend behavior for day of week, month of year and yearly trend." ) 
+
+    st.warning("This tool is in beta and may be taken offline periodically for maintenance and or tuning without notice and for unknown lengths of time.")   
+        
+        
 
 
 
