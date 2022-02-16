@@ -289,9 +289,9 @@ ticker_list = get_listbox_data(TICKER_LIST_PATH)
 ticker_selectbox = st.sidebar.selectbox("1. Choose a ticker", ticker_list)
 st.sidebar.markdown('____')
 
-strategy_list = get_listbox_data(STRATEGY_LIST_PATH)
-strategy_listbox = st.sidebar.multiselect("2. Choose one or more trading strategies", strategy_list)
-st.sidebar.markdown('____')
+# strategy_list = get_listbox_data(STRATEGY_LIST_PATH)
+# strategy_listbox = st.sidebar.multiselect("2. Choose one or more trading strategies", strategy_list)
+# st.sidebar.markdown('____')
 
 n_day = st.sidebar.slider("3. Choose number of weeks to forecast", 1,4)
 period = n_day*10
@@ -301,5 +301,5 @@ st.sidebar.button('4. Run Analysis',
     key= 'button_run_analysis',
     help='Click to run analysis.', 
     on_click=run_analysis,
-    args=(ticker_list, START, TODAY, period, strategy_listbox)
+    args=(ticker_list, START, TODAY, period) # , strategy_listbox
 )
