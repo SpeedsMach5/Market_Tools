@@ -107,7 +107,7 @@ def display_parameter_section():
     )  
 
     st.warning("Graph Interpretation: "\
-        "Closes that are away from the mean (blue line) are expected, but not garunteed, to revert to the mean at a point in the future. "\
+        "Closes that are away from the mean (blue line) are expected, but not assured during the predicted window, to revert to the mean at a point in the future. "\
             "The graph shows forward looking dates as possible time frames, not definitive time frames for price realization "\
             "Eaxmple: if a close is ABOVE the mean, the expected movement will be DOWN towards the mean at some point in the future."
                 )
