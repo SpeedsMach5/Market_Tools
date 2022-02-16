@@ -93,26 +93,26 @@ def display_parameter_section():
                           
         )
 
-    st.warning("README"\
+    st.warning("README: "\
         "The model outputs \
              1) Historic data (previous closes)= black dots \
                  2) Mean = blue line\
                      3) Trend changes = red line "\
                 )
 
-    st.warning("How to use"\
+    st.warning("How to use: "\
         "Select stock from drop down. There are currently 8,000 tradebale stocks listed. "\
             "Select number of weeks to model. You can model up to 4 weeks, but remember that the more time selected, the uncertainty is magnified."\
                 "The predictive model graph is interactive zoom, pan, enlarge, etc. To reset graph select the 'home' icon (the house)"
     )  
 
-    st.warning("Graph Interpretation"\
+    st.warning("Graph Interpretation: "\
         "Closes that are away from the mean (blue line) are expected, but not garunteed, to revert to the mean at a point in the future. "\
             "The graph shows forward looking dates as possible time frames, not definitive time frames for price realization "\
             "Eaxmple: if a close is ABOVE the mean, the expected movement will be DOWN towards the mean at some point in the future."
                 )
 
-    st.warning("Expected Output"\
+    st.warning("Expected Output: "\
         "The last 5 days closing prices for the selected stock. "\
             "The predictive model price and the predicitve model graph. "\
                 "Historic trend behavior for day of week, month of year and yearly trend." ) 
